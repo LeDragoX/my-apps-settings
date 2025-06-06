@@ -11,19 +11,10 @@ RefreshPeriod=250
 EmbeddedImage=
 PingAddr=
 [General]
-Sources=19
+Sources=13
 Tables=2
 Layers=24
 [Source0]
-Name=GPU temperature
-Units=°C
-Format=
-Formula=
-Provider=MSI Afterburner
-SrcId=00000000
-Gpu=00000000
-SrcName=
-[Source1]
 Name=GPU usage
 Units=%
 Format=
@@ -32,43 +23,41 @@ Provider=MSI Afterburner
 SrcId=00000030
 Gpu=00000000
 SrcName=
-[Source2]
-Name=Core clock
-Units=MHz
+[Source1]
+Name=GPU temperature
+Units=°C
 Format=
 Formula=
 Provider=MSI Afterburner
-SrcId=00000020
+SrcId=00000000
+Gpu=00000000
+SrcName=
+[Source2]
+Name=Power
+Units=W
+Format=%0.1f
+Formula=
+Provider=MSI Afterburner
+SrcId=00000061
 Gpu=00000000
 SrcName=
 [Source3]
 Name=Memory usage
-Units=MB
-Format=
-Formula=
+Units=GB
+Format=%0.1f
+Formula=x/1024
 Provider=MSI Afterburner
 SrcId=00000031
 Gpu=00000000
 SrcName=
 [Source4]
-Name=Memory clock
-Units=MHz
-Format=
-Formula=
-Provider=MSI Afterburner
-SrcId=00000022
-Gpu=00000000
-SrcName=
+Name=GPU1 memory usage \ process
+Units=GB
+Format=%0.1f
+Formula=x/1024
+Provider=HAL
+ID=GPU1 memory usage \ process
 [Source5]
-Name=CPU temperature
-Units=°C
-Format=
-Formula=
-Provider=MSI Afterburner
-SrcId=00000080
-Gpu=FFFFFFFF
-SrcName=
-[Source6]
 Name=CPU usage
 Units=%
 Format=
@@ -77,25 +66,41 @@ Provider=MSI Afterburner
 SrcId=00000090
 Gpu=FFFFFFFF
 SrcName=
-[Source7]
-Name=CPU clock
-Units=MHz
+[Source6]
+Name=CPU temperature
+Units=°C
 Format=
 Formula=
 Provider=MSI Afterburner
-SrcId=000000A0
+SrcId=00000080
+Gpu=FFFFFFFF
+SrcName=
+[Source7]
+Name=CPU power
+Units=W
+Format=%0.1f
+Formula=
+Provider=MSI Afterburner
+SrcId=00000100
 Gpu=FFFFFFFF
 SrcName=
 [Source8]
 Name=RAM usage
-Units=MB
-Format=
-Formula=
+Units=GB
+Format=%0.1f
+Formula=x/1024
 Provider=MSI Afterburner
 SrcId=00000091
 Gpu=00000000
 SrcName=
 [Source9]
+Name=RAM usage \ process
+Units=GB
+Format=%0.1f
+Formula=x/1024
+Provider=HAL
+ID=RAM usage \ process
+[Source10]
 Name=Framerate
 Units=FPS
 Format=
@@ -104,7 +109,7 @@ Provider=MSI Afterburner
 SrcId=00000050
 Gpu=FFFFFFFF
 SrcName=
-[Source10]
+[Source11]
 Name=Framerate Avg
 Units=FPS
 Format=
@@ -113,7 +118,7 @@ Provider=MSI Afterburner
 SrcId=00000053
 Gpu=FFFFFFFF
 SrcName=
-[Source11]
+[Source12]
 Name=Frametime
 Units=ms
 Format=
@@ -122,55 +127,6 @@ Provider=MSI Afterburner
 SrcId=00000051
 Gpu=FFFFFFFF
 SrcName=
-[Source12]
-Name=RAM usage percent
-Units=%
-Format=
-Formula=
-Provider=HAL
-ID=RAM usage percent
-[Source13]
-Name=RAM usage
-Units=MB
-Format=
-Formula=
-Provider=HAL
-ID=RAM usage
-[Source14]
-Name=GPU1 memory usage
-Units=MB
-Format=
-Formula=
-Provider=HAL
-ID=GPU1 memory usage
-[Source15]
-Name=CPU power
-Units=W
-Format=
-Formula=
-Provider=HAL
-ID=CPU power
-[Source16]
-Name=GPU1 power
-Units=W
-Format=
-Formula=
-Provider=HAL
-ID=GPU1 power
-[Source17]
-Name=RAM usage \ process
-Units=MB
-Format=
-Formula=
-Provider=HAL
-ID=RAM usage \ process
-[Source18]
-Name=GPU1 memory usage \ process
-Units=MB
-Format=
-Formula=
-Provider=HAL
-ID=GPU1 memory usage \ process
 [Table0]
 Name=GPU USAGE
 Lines=1
@@ -186,7 +142,7 @@ Line0Name=
 Line0Cells=1
 Line0Cell0Source=Framerate
 [Layer0]
-Name=CPU usage
+Name=CPU Usage
 Text=%CPU usage%%
 PositionX=-45
 PositionY=0
@@ -196,7 +152,7 @@ ExtentOrigin=5
 TextColor=FFFFFF
 [Layer1]
 Name=FPS + FRAMETIME
-Text=%Framerate% <S=50>FPS<S> <FT> <S=66>ms<S>
+Text=%Framerate%<S=50> FPS<S> <FT><S=66> ms<S>
 PositionX=-7
 PositionY=0
 ExtentX=-9
@@ -226,7 +182,7 @@ TextColor=C68EFF
 [Layer4]
 Name=Separator
 Text=|
-PositionX=-80
+PositionX=-82
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -246,7 +202,7 @@ TextColor=C68EFF
 [Layer6]
 Name=Separator
 Text=|
-PositionX=-56
+PositionX=-57
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -254,10 +210,9 @@ ExtentOrigin=4
 Size=90
 TextColor=C68EFF
 [Layer7]
-Name=" GPU temperature"
-VisibilitySource=GPU temperature
+Name=GPU Temperature
 Text=%GPU temperature%<S=66>°C<S>
-PositionX=-73
+PositionX=-74
 PositionY=0
 ExtentX=-3
 ExtentY=-1
@@ -266,14 +221,14 @@ TextColor=FFFFFF
 [Layer8]
 Name=GPU
 Text=%GPU% %VRAM%
-PositionX=-58
+PositionX=-59
 PositionY=0
 ExtentX=-7
 ExtentY=-1
 ExtentOrigin=0
 TextColor=80FF80
 [Layer9]
-Name=CPU Name
+Name=CPU
 Text=%CPUShort%
 PositionX=-38
 PositionY=0
@@ -284,7 +239,7 @@ TextColor=63C9F2
 [Layer10]
 Name=RAM
 Text=RAM
-PositionX=-82
+PositionX=-84
 PositionY=0
 ExtentX=-4
 ExtentY=-1
@@ -297,10 +252,10 @@ PositionX=0
 PositionY=0
 ExtentX=-6
 ExtentY=-1
-ExtentOrigin=5
+ExtentOrigin=3
 TextColor=DB7A7E
 [Layer12]
-Name=CPU Temp All
+Name=CPU Temp (All)
 Text=%CPU temperature%<S=66>°C<S>
 PositionX=-49
 PositionY=0
@@ -319,20 +274,20 @@ ExtentOrigin=4
 Size=90
 TextColor=C68EFF
 [Layer14]
-Name=GPU usage
+Name=GPU Usage
 Text=%GPU usage%%
-PositionX=-69
+PositionX=-70
 PositionY=0
 ExtentX=-3
 ExtentY=-1
 ExtentOrigin=5
 TextColor=FFFFFF
 [Layer15]
-Name=RAM usage
-Text=%RAM usage%<S=66>MiB<S> (%RAM usage \ process%<S=66>MiB<S>)
-PositionX=-86
+Name=RAM Usage
+Text=%RAM usage%<S=66>GiB<S> (%RAM usage \ process%<S=66>GiB<S>)
+PositionX=-88
 PositionY=0
-ExtentX=-13
+ExtentX=-11
 ExtentY=-1
 ExtentOrigin=5
 TextColor=FFFFFF
@@ -346,18 +301,18 @@ ExtentY=-1
 ExtentOrigin=4
 TextColor=BD7DD2
 [Layer17]
-Name=RAM usage
-Text=%GPU1 memory usage%<S=66>MiB<S> (%GPU1 memory usage \ process%<S=66>MiB<S>)
+Name=VRAM Usage
+Text=%Memory usage%<S=66>GiB<S> (%GPU1 memory usage \ process%<S=66>GiB<S>)
 PositionX=-106
 PositionY=0
-ExtentX=-12
+ExtentX=-10
 ExtentY=-1
 ExtentOrigin=5
 TextColor=FFFFFF
 [Layer18]
 Name=Separator
 Text=|
-PositionX=-118
+PositionX=-116
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -367,7 +322,7 @@ TextColor=C68EFF
 [Layer19]
 Name=CPU Power
 Text=%CPU power%<S=66>W<S>
-PositionX=-52
+PositionX=-53
 PositionY=0
 ExtentX=-4
 ExtentY=-1
@@ -375,17 +330,17 @@ ExtentOrigin=5
 TextColor=FFFFFF
 [Layer20]
 Name=GPU Power
-Text=%GPU1 power%<S=66>W<S>
-PositionX=-76
+Text=%Power%<S=66>W<S>
+PositionX=-78
 PositionY=0
 ExtentX=-4
 ExtentY=-1
 ExtentOrigin=5
 TextColor=FFFFFF
 [Layer21]
-Name=
+Name=Time (24h)
 Text=<TIME=%H:%M>
-PositionX=-120
+PositionX=-118
 PositionY=0
 ExtentX=-4
 ExtentY=-1
@@ -395,7 +350,7 @@ TextColor=FFFFFF
 Name=Avg FPS & 1% Low
 VisibilitySource=Framerate Avg
 Text=%Framerate Avg% <S=50>FPS<S> %Framerate 1% Low% <S=50>FPS<S>
-PositionX=-65
+PositionX=-66
 PositionY=-1
 ExtentX=-9
 ExtentY=-1
@@ -405,7 +360,7 @@ TextColor=FFFFFF
 Name=Avg FPS & 1% Low Label
 VisibilitySource=Framerate Avg
 Text=AVG/1%
-PositionX=-58
+PositionX=-59
 PositionY=-1
 ExtentX=-6
 ExtentY=-1
