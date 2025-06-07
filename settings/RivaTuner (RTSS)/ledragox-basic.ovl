@@ -44,7 +44,7 @@ SrcName=
 [Source3]
 Name=CPU power
 Units=W
-Format=%0.1f
+Format=
 Formula=
 Provider=MSI Afterburner
 SrcId=00000100
@@ -80,7 +80,7 @@ SrcName=
 [Source7]
 Name=Power
 Units=W
-Format=%0.1f
+Format=
 Formula=
 Provider=MSI Afterburner
 SrcId=00000061

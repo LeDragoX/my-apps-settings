@@ -13,7 +13,7 @@ PingAddr=
 [General]
 Sources=13
 Tables=2
-Layers=24
+Layers=25
 [Source0]
 Name=GPU usage
 Units=%
@@ -35,7 +35,7 @@ SrcName=
 [Source2]
 Name=Power
 Units=W
-Format=%0.1f
+Format=
 Formula=
 Provider=MSI Afterburner
 SrcId=00000061
@@ -78,7 +78,7 @@ SrcName=
 [Source7]
 Name=CPU power
 Units=W
-Format=%0.1f
+Format=
 Formula=
 Provider=MSI Afterburner
 SrcId=00000100
@@ -144,7 +144,7 @@ Line0Cell0Source=Framerate
 [Layer0]
 Name=CPU Usage
 Text=%CPU usage%%
-PositionX=-45
+PositionX=-41
 PositionY=0
 ExtentX=-3
 ExtentY=-1
@@ -153,7 +153,7 @@ TextColor=FFFFFF
 [Layer1]
 Name=FPS + FRAMETIME
 Text=%Framerate%<S=50> FPS<S> <FT><S=66> ms<S>
-PositionX=-7
+PositionX=-3
 PositionY=0
 ExtentX=-9
 ExtentY=-1
@@ -162,7 +162,7 @@ TextColor=FFFFFF
 [Layer2]
 Name=FRAMETIME Bar
 Text=<G=Frametime,-35,5,0,0,100,0>
-PositionX=-18
+PositionX=-14
 PositionY=0
 ExtentX=-18
 ExtentY=-1
@@ -172,7 +172,7 @@ TextColor=80FF80
 [Layer3]
 Name=Separator
 Text=|
-PositionX=-36
+PositionX=-32
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -182,7 +182,7 @@ TextColor=C68EFF
 [Layer4]
 Name=Separator
 Text=|
-PositionX=-82
+PositionX=-76
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -192,7 +192,7 @@ TextColor=C68EFF
 [Layer5]
 Name=Separator
 Text=|
-PositionX=-99
+PositionX=-93
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -202,7 +202,7 @@ TextColor=C68EFF
 [Layer6]
 Name=Separator
 Text=|
-PositionX=-57
+PositionX=-52
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -212,7 +212,7 @@ TextColor=C68EFF
 [Layer7]
 Name=GPU Temperature
 Text=%GPU temperature%<S=66>°C<S>
-PositionX=-74
+PositionX=-69
 PositionY=0
 ExtentX=-3
 ExtentY=-1
@@ -221,7 +221,7 @@ TextColor=FFFFFF
 [Layer8]
 Name=GPU
 Text=%GPU% %VRAM%
-PositionX=-59
+PositionX=-54
 PositionY=0
 ExtentX=-7
 ExtentY=-1
@@ -230,7 +230,7 @@ TextColor=80FF80
 [Layer9]
 Name=CPU
 Text=%CPUShort%
-PositionX=-38
+PositionX=-34
 PositionY=0
 ExtentX=-6
 ExtentY=-1
@@ -239,7 +239,7 @@ TextColor=63C9F2
 [Layer10]
 Name=RAM
 Text=RAM
-PositionX=-84
+PositionX=-78
 PositionY=0
 ExtentX=-4
 ExtentY=-1
@@ -247,17 +247,18 @@ ExtentOrigin=4
 TextColor=CD78A3
 [Layer11]
 Name=FPS API
-Text=<APP>
+Text=FPS
 PositionX=0
 PositionY=0
-ExtentX=-6
+ExtentX=-3
 ExtentY=-1
-ExtentOrigin=3
+ExtentOrigin=4
 TextColor=DB7A7E
+MarginBottom=2
 [Layer12]
 Name=CPU Temp (All)
 Text=%CPU temperature%<S=66>°C<S>
-PositionX=-49
+PositionX=-45
 PositionY=0
 ExtentX=-3
 ExtentY=-1
@@ -266,7 +267,7 @@ TextColor=FFFFFF
 [Layer13]
 Name=Separator
 Text=|
-PositionX=-16
+PositionX=-12
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -276,7 +277,7 @@ TextColor=C68EFF
 [Layer14]
 Name=GPU Usage
 Text=%GPU usage%%
-PositionX=-70
+PositionX=-65
 PositionY=0
 ExtentX=-3
 ExtentY=-1
@@ -285,7 +286,7 @@ TextColor=FFFFFF
 [Layer15]
 Name=RAM Usage
 Text=%RAM usage%<S=66>GiB<S> (%RAM usage \ process%<S=66>GiB<S>)
-PositionX=-88
+PositionX=-82
 PositionY=0
 ExtentX=-11
 ExtentY=-1
@@ -294,7 +295,7 @@ TextColor=FFFFFF
 [Layer16]
 Name=VRAM
 Text=VRAM
-PositionX=-101
+PositionX=-95
 PositionY=0
 ExtentX=-5
 ExtentY=-1
@@ -303,7 +304,7 @@ TextColor=BD7DD2
 [Layer17]
 Name=VRAM Usage
 Text=%Memory usage%<S=66>GiB<S> (%GPU1 memory usage \ process%<S=66>GiB<S>)
-PositionX=-106
+PositionX=-100
 PositionY=0
 ExtentX=-10
 ExtentY=-1
@@ -312,7 +313,7 @@ TextColor=FFFFFF
 [Layer18]
 Name=Separator
 Text=|
-PositionX=-116
+PositionX=-110
 PositionY=0
 ExtentX=-2
 ExtentY=-1
@@ -322,7 +323,7 @@ TextColor=C68EFF
 [Layer19]
 Name=CPU Power
 Text=%CPU power%<S=66>W<S>
-PositionX=-53
+PositionX=-48
 PositionY=0
 ExtentX=-4
 ExtentY=-1
@@ -331,36 +332,47 @@ TextColor=FFFFFF
 [Layer20]
 Name=GPU Power
 Text=%Power%<S=66>W<S>
-PositionX=-78
+PositionX=-72
 PositionY=0
 ExtentX=-4
 ExtentY=-1
 ExtentOrigin=5
 TextColor=FFFFFF
 [Layer21]
-Name=Time (24h)
-Text=<TIME=%H:%M>
-PositionX=-118
-PositionY=0
-ExtentX=-4
-ExtentY=-1
-ExtentOrigin=4
-TextColor=FFFFFF
-[Layer22]
 Name=Avg FPS & 1% Low
 VisibilitySource=Framerate Avg
 Text=%Framerate Avg% <S=50>FPS<S> %Framerate 1% Low% <S=50>FPS<S>
-PositionX=-66
+PositionX=-61
 PositionY=-1
 ExtentX=-9
 ExtentY=-1
 ExtentOrigin=3
 TextColor=FFFFFF
+[Layer22]
+Name=Time (24h)
+Text=<TIME=%H:%M>
+PositionX=-112
+PositionY=0
+ExtentX=-3
+ExtentY=-1
+ExtentOrigin=3
+TextColor=FFFFFF
 [Layer23]
+Name=FPS API
+Text=<S=50><APP><S>
+PositionX=0
+PositionY=0
+ExtentX=-3
+ExtentY=-1
+ExtentOrigin=4
+FixedAlignment=1
+TextColor=DB7A7E
+MarginTop=10
+[Layer24]
 Name=Avg FPS & 1% Low Label
 VisibilitySource=Framerate Avg
 Text=AVG/1%
-PositionX=-59
+PositionX=-54
 PositionY=-1
 ExtentX=-6
 ExtentY=-1
